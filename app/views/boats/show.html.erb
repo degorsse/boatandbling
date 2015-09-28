@@ -1,0 +1,29 @@
+<p id="notice"><%= notice %></p>
+
+<p>
+  <strong>Name:</strong>
+  <%= @boat.name %>
+</p>
+
+<p>
+  <strong>Capacity:</strong>
+  <%= @boat.capacity %>
+</p>
+
+<p>
+  <strong>Size:</strong>
+  <%= @boat.size %>
+</p>
+
+<p>
+  <strong>Price per day:</strong>
+  <%= @boat.price_per_day %>
+</p>
+
+<p>
+  <strong>Description:</strong>
+  <%= @boat.description %>
+</p>
+
+<%= link_to 'Edit', edit_boat_path(@boat) %> |
+<%= link_to 'Back', boats_path %>
