@@ -10,7 +10,7 @@
 
   resources :boats
 
-  root "boats#index"
+  root "bookings#new"
   # The priority is based upon order of creation: first created -> highest priority.
   # See how all your routes lay out with "rake routes".
 
