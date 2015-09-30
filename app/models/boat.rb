@@ -4,5 +4,4 @@ class Boat < ActiveRecord::Base
   def self.search(query)
   end
 
-
 end

@@ -1,4 +1,11 @@
   Rails.application.routes.draw do
+
+
+  resources :harbours do
+    get 'boats/selection'
+    resources :boats
+    end
+
   devise_for :users
   get 'bookings/create'
 
@@ -7,9 +14,6 @@
   get 'bookings/show'
 
   get 'bookings/new'
-
-  get 'boats/selection'
-  resources :boats
 
 
   root "bookings#new"
