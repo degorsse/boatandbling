@@ -1,4 +1,20 @@
   Rails.application.routes.draw do
+
+
+  # get 'harbours/index'
+
+  # get 'harbours/new'
+
+  # get 'harbours/create'
+
+  # get 'harbours/show'
+
+  # get 'harbours/edit'
+
+  # get 'harbours/update'
+
+  # get 'harbours/destroy'
+
   devise_for :users
   get 'bookings/create'
 
@@ -8,7 +24,9 @@
 
   get 'bookings/new'
 
-  resources :boats
+  resources :harbours do
+    resources :boats
+  end
 
   root "bookings#new"
   # The priority is based upon order of creation: first created -> highest priority.
