@@ -5,7 +5,6 @@ class BoatsController < ApplicationController
   # GET /boats.json
   def index
     @boats = Boat.all
-    @boat.find(booking_params)
   end
 
   # GET /boats/1
@@ -25,6 +24,7 @@ class BoatsController < ApplicationController
 
   # GET /boats/1/edit
   def edit
+    set_boat
   end
 
   # POST /boats
@@ -61,9 +61,10 @@ class BoatsController < ApplicationController
   # DELETE /boats/1
   # DELETE /boats/1.json
   def destroy
+    set_boat
     @boat.destroy
     respond_to do |format|
-      format.html { redirect_to boats_url, notice: 'Boat was successfully destroyed.' }
+      format.html { redirect_to harbour_boats_path}
       format.json { head :no_content }
     end
   end
