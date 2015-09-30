@@ -2,3 +2,52 @@
  * SASS code SPECIFIC TO your home page
  * (margin/padding adjustments, background image, etc..)
  * ------------------------------------- */
+
+ .home_video {
+    left: 0;
+    min-height: 100%;
+    min-width: 100%;
+    position: absolute;
+    top: 0;
+    left:0;
+    width: 100%;
+    margin: 0;
+    padding: 0;
+    border: 0;
+    font-size: 100%;
+    font: inherit;
+    vertical-align: baseline;
+    font-family: 'Open Sans', sans-serif;
+    display: inline-block;
+    object-fit: contain;
+    z-index: -1000;
+
+}
+
+.video-overlay {
+  background: url("http://robinsonandtoler.com/wp-content/uploads/2013/12/Yacht.jpg") repeat scroll 0 0 rgba(33, 39, 57, 0.5);
+  position: absolute;
+  bottom: 50%;
+  right: 50%;
+  -webkit-transform: translateX(-50%) translateY(-50%);
+  transform: translateX(-50%) translateY(-50%);
+  min-width: 100%;
+  min-height: 100%;
+  width: auto;
+  height: auto;
+  z-index: -1000;
+  overflow: hidden;
+}
+
+.first-view{
+  padding: 100px 350px 0 350px;
+  text-align: center;
+}
+
+.navbar-brand {
+    height: 50px;
+    width: 100px;
+}
+
+
+
