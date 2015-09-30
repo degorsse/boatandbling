@@ -1,7 +1,8 @@
-<h1>List of Harbours</h1>
+
+<h1>Select your Harbour</h1>
 
 
-<table>
+<table class="table table_striped">
   <thead>
     <tr>
       <th>Name</th>
@@ -22,13 +23,15 @@
         <td><%= link_to 'Edit', edit_harbour_path(h) %></td>
         <td><%= link_to 'Destroy', harbour_path(h), method: :delete, data: { confirm: 'Are you sure?' } %></td>
 
-        <td><%= link_to 'Add a boat', new_harbour_boat_path(h) %></td>
+        <td><%= link_to 'SELECT', new_harbour_boat_path(h), class: "btn btn-primary" %></td>
 
 
       </tr>
     <% end %>
   </tbody>
 </table>
+
+
 
 
 <br>
