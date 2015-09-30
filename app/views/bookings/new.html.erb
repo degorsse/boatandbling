@@ -8,7 +8,7 @@
     <div class="video-overlay"></div>
 
 
-<form>
+<form action="<%= boats_selection_path %>">
   <fieldset>
     <div class="container">
       <div class="row first-view"> <br>
@@ -25,7 +25,7 @@
 
           <div class="input-group">
             <span class="input-group-addon" id="basic-addon1">&nbsp;Capacity&nbsp; </span>
-            <input type="text" class="form-control" name="capacity_search" placeholder="Capacity" aria-describedby="basic-addon1">
+            <input type="text" class="form-control" name="boats_capacity_search" placeholder="Capacity" aria-describedby="basic-addon1">
           </div>
           <br>
 
@@ -37,10 +37,13 @@
 
             <br>
             <input type="submit" class="btn btn-info" placeholder="Validate">
-  </fieldset>
-        </form>
-      </div>
+
     </div>
+    </div>
+  </fieldset>
+
+   </form>
+
 
 <!-- Reminder -->
   <!-- <textarea></textarea> -->
