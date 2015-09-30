@@ -33,6 +33,10 @@ class HarboursController < ApplicationController
   end
 
   def destroy
+   set_harbour
+   @harbour.delete
+   redirect_to harbours_path
+
   end
 
 

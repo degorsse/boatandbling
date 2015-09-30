@@ -1,5 +1,5 @@
 class BoatsController < ApplicationController
-  before_action :set_boat, only: [:show, :edit, :update, :destroy]
+  before_action :find_harbour, only: [:index, :create, :new, :show, :edit, :update, :destroy]
 
   # GET /boats
   # GET /boats.json
@@ -10,6 +10,7 @@ class BoatsController < ApplicationController
   # GET /boats/1
   # GET /boats/1.json
   def show
+    set_boat
   end
 
   # GET /boats/new
@@ -24,17 +25,18 @@ class BoatsController < ApplicationController
   # POST /boats
   # POST /boats.json
   def create
-    @boat = Boat.new(boat_params)
-
-    respond_to do |format|
-      if @boat.save
-        format.html { redirect_to @boat, notice: 'Boat was successfully created.' }
-        format.json { render :show, status: :created, location: @boat }
-      else
-        format.html { render :new }
-        format.json { render json: @boat.errors, status: :unprocessable_entity }
-      end
-    end
+    @boat = @harbour.boats.build(boat_params)
+    @boat.save
+    redirect_to harbour_boats_path(@harbour, @boat)
+    # respond_to do |format|
+    #   if @boat.save
+    #     format.html { redirect_to harbour_boats_path, notice: 'Boat was successfully created.' }
+    #     format.json { render :show, status: :created, location: @boat }
+    #   else
+    #     format.html { render :new }
+    #     format.json { render json: @boat.errors, status: :unprocessable_entity }
+    #   end
+    # end
   end
 
   # PATCH/PUT /boats/1
@@ -42,7 +44,7 @@ class BoatsController < ApplicationController
   def update
     respond_to do |format|
       if @boat.update(boat_params)
-        format.html { redirect_to @boat, notice: 'Boat was successfully updated.' }
+        format.html { redirect_to harbour_boats_path, notice: 'Boat was successfully updated.' }
         format.json { render :show, status: :ok, location: @boat }
       else
         format.html { render :edit }
@@ -65,6 +67,10 @@ class BoatsController < ApplicationController
     # Use callbacks to share common setup or constraints between actions.
     def set_boat
       @boat = Boat.find(params[:id])
+    end
+
+    def find_harbour
+      @harbour = Harbour.find(params[:harbour_id])
     end
 
     # Never trust parameters from the scary internet, only allow the white list through.

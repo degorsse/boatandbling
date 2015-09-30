@@ -19,11 +19,20 @@
         <td><%= h.city %></td>
 
         <td><%= link_to 'Show', harbour_path(h) %></td>
-        <td><%= link_to 'Add a boat', edit_harbour_path(h) %></td>
+        <td><%= link_to 'Edit', edit_harbour_path(h) %></td>
+        <td><%= link_to 'Destroy', harbour_path(h), method: :delete, data: { confirm: 'Are you sure?' } %></td>
+
+        <td><%= link_to 'Add a boat', new_harbour_boat_path(h) %></td>
+
 
       </tr>
     <% end %>
   </tbody>
 </table>
+
+
+<br>
+
+ <td><%= link_to 'Add an Harbour', new_harbour_path %></td>
 
 <br>
