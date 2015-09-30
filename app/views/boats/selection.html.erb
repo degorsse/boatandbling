@@ -1,5 +1,5 @@
 <p id="notice"><%= notice %></p>
-<h1>Boats available in <%=@harbour.city%> </h1>
+<h1>Boats available in this Harbour </h1>
 
 <table>
   <thead>
@@ -17,10 +17,12 @@
 
     <% @boats.each do |boat| %>
       <tr>
-        <td><%= boat.harbour %></td>
-        <td><%= booking.price_per_day %></td>
-           <td><%= link_to 'More boats in this Harbour', harbour_path %></td>
-        <td><%= link_to 'Book', booking_create_path %></td>
+        <td><%= boat.name %></td>
+        <td><%= boat.capacity %> passengers</td>
+        <td><%= boat.size %> m.</td>
+        <td><%= boat.price_per_day %></td>
+           <td><%= link_to '+', boat_path(boat.id) %></td>
+
       </tr>
     <% end %>
   </tbody>

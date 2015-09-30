@@ -5,6 +5,7 @@ class BoatsController < ApplicationController
   # GET /boats.json
   def index
     @boats = Boat.all
+    @boat.find(booking_params)
   end
 
   # GET /boats/1
@@ -12,6 +13,10 @@ class BoatsController < ApplicationController
   def show
   end
 
+  def selection
+    @boats = Boat.where(capacity: params[:boats_capacity_search] )
+    @harbour = Harbour.where(city: params[:harbour_search])
+  end
   # GET /boats/new
   def new
     @boat = Boat.new
