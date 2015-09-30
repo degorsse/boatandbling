@@ -22,9 +22,9 @@
         <td><%= boat.size %></td>
         <td><%= boat.price_per_day %></td>
         <td><%= boat.description %></td>
-        <td><%= link_to 'Show', boat %></td>
-        <td><%= link_to 'Edit', edit_boat_path(boat) %></td>
-        <td><%= link_to 'Destroy', boat, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+        <td><%= link_to 'Show', harbour_boat_path(boat.harbour, boat) %></td>
+        <td><%= link_to 'Edit', edit_harbour_boat_path(boat.harbour, boat) %></td>
+        <td><%= link_to 'Destroy', harbour_boat_path(boat.harbour, boat), method: :delete, data: { confirm: 'Are you sure?' } %></td>
       </tr>
     <% end %>
   </tbody>
@@ -32,4 +32,7 @@
 
 <br>
 
-<%= link_to 'New Boat', new_boat_path %>
+<%= link_to 'New Boat', new_harbour_boat_path %>
+
+
+
