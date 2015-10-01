@@ -7,7 +7,10 @@
     end
 
   devise_for :users
-  get 'bookings/create'
+
+
+
+  get 'users/id/bookings/create'
 
   get 'bookings/index'
 
