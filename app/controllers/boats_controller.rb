@@ -14,8 +14,8 @@ class BoatsController < ApplicationController
   end
 
   def selection
-    @boats = Boat.where(capacity: params[:boats_capacity_search] )
-    @harbour = Harbour.where(city: params[:harbour_search])
+    @boats_selected = Boat.joins(:harbour).where('harbours.city= ? AND boats.capacity = ?', params[:harbour_search], params[:boats_capacity_search])
+    # @harbour = Harbour.where(city: params[:harbour_search])
   end
   # GET /boats/new
   def new
