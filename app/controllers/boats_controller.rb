@@ -14,8 +14,8 @@ class BoatsController < ApplicationController
   end
 
   def selection
-    @boats = Boat.where(capacity: params[:boats_capacity_search] )
-    @harbour = Harbour.where(city: params[:harbour_search])
+    @boats_selected = Boat.joins(:harbour).where('harbours.city= ? AND boats.capacity = ?', params[:harbour_search], params[:boats_capacity_search])
+    # @harbour = Harbour.where(city: params[:harbour_search])
   end
   # GET /boats/new
   def new
@@ -32,7 +32,7 @@ class BoatsController < ApplicationController
   def create
     @boat = @harbour.boats.build(boat_params)
     @boat.save
-    redirect_to harbour_boats_path(@harbour, @boat)
+    redirect_to harbour_boats_path(@harbour)
     # respond_to do |format|
     #   if @boat.save
     #     format.html { redirect_to harbour_boats_path, notice: 'Boat was successfully created.' }

@@ -1,5 +1,7 @@
 <p id="notice"><%= notice %></p>
 
+
+<table class="table table_striped">
 <p>
   <strong>Name:</strong>
   <%= @boat.name %>
@@ -25,5 +27,8 @@
   <%= @boat.description %>
 </p>
 
-<%= link_to 'Edit', edit_boat_path(@boat) %> |
-<%= link_to 'Back', boats_path %>
+
+</table>
+
+<%= link_to 'Edit', edit_harbour_boat_path(@boat.harbour, @boat) %> |
+<%= link_to 'Back', harbour_boats_path %>

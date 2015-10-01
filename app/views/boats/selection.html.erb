@@ -1,32 +1,51 @@
 <p id="notice"><%= notice %></p>
-<h1>Boats available in this Harbour </h1>
+<div class="container">
+  <div class="row"><p>
 
-<table>
-  <thead>
-    <tr>
-      <th>Name</th>
-      <th>Capacity</th>
-      <th>Size</th>
-      <th>Price per day</th>
-      <th>Description</th>
-      <th colspan="3"></th>
-    </tr>
-  </thead>
+    <h1>Boats available in <%=params[:harbour_search].to_s.capitalize%> </h1><p>
+    You searched a yacht welcoming up to <span class="btn btn-default"><%=params[:boats_capacity_search]%></span> passengers - in
+<span class="btn btn-default"><%=params[:harbour_search]%></span>from <%= link_to "#", {class: "btn btn-default"} do %>
+              <%=params[:start_date_search]%>
+            <% end %>
+            to <%= link_to "#", {class: "btn btn-default"} do %>
+              <%=params[:end_date_search]%>
+            <% end %>
+<%= link_to "#", {class: "btn btn-default"} do %>
+              Change my search criteria
+            <% end %></p><p></p><p></p><hr><p></p>
 
-  <tbody>
+    <div class="col-xs-12" >
 
-    <% @boats.each do |boat| %>
+
+    <table class="table table-striped">
+      <thead>
+        <tr>
+          <th> Name of the Ship </th>
+          <th>Available in</th>
+          <th>Size (in meters)</th>
+          <th>Capacity (passengers)</th>
+          <th>Price per day</th>
+          <th>Description</th>
+          <th colspan="3"></th>
+        </tr>
+      </thead>
+
+      <tbody>
+   <% @boats_selected.each do |boat| %>
       <tr>
         <td><%= boat.name %></td>
-        <td><%= boat.capacity %> passengers</td>
-        <td><%= boat.size %> m.</td>
+        <td><%= boat.harbour.name %><br>
+          <%= boat.harbour.city %></td>
+        <td><%= boat.capacity %></td>
+        <td><%= boat.size %></td>
         <td><%= boat.price_per_day %></td>
-           <td><%= link_to '+', boat_path(boat.id) %></td>
-
-      </tr>
-    <% end %>
-  </tbody>
-</table>
-
-
-<p>Find me in app/views/bookings/index.html.erb</p>
+        <td><%= boat.description %></td>
+        <td><%= link_to 'More...', harbour_boat_path(boat.harbour, boat, {class: "btn btn-primary"}) %></span></td>
+        <td><%= link_to 'Quick reservation', harbour_boat_path(boat.harbour, boat, {class: "btn btn-primary"}) %></span></td>
+    <% end%>
+      </tbody>
+    </table>
+    </div>
+  </div>
+</div>
+  <p>Find me in app/views/bookings/index.html.erb</p>
