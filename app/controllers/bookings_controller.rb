@@ -4,8 +4,8 @@ class BookingsController < ApplicationController
 
   def index
     @bookings = Booking.all
-    @harbour= Harbour.all.sample
-    # @harbour = .find(params[:id])
+    @harbours= Harbour.all
+
   end
 
   def show

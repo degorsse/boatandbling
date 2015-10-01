@@ -31,8 +31,10 @@
 
           <div class="input-group">
             <span class="input-group-addon" id="basic-addon1">&nbsp;*Harbour&nbsp;</span>
-            <input type="text" class="form-control" name="harbour_search" placeholder="Harbour" aria-describedby="basic-addon1">
+            <!-- <input type="text" select_tag= class="form-control" name="harbour_search" placeholder="Harbour" aria-describedby="basic-addon1"> -->
+            <%= select(:harbour_search, :harbour_search, Harbour.all.collect {|h| [h.city, h.city]}, {}, {class: 'form-control'})%>
           </div>
+
           <br>
 
             <br>
@@ -44,6 +46,8 @@
 
    </form>
 
+
+<!-- <input type="text" select_tag= class="form-control" name="harbour_search" placeholder="Harbour" aria-describedby="basic-addon1"> -->
 
 <!-- Reminder -->
   <!-- <textarea></textarea> -->

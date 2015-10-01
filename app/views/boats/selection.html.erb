@@ -2,9 +2,9 @@
 <div class="container">
   <div class="row"><p>
 
-    <h1>Boats available in <%=params[:harbour_search].to_s.capitalize%> </h1><p>
+    <h1>Boats available in <%=params[:harbour_search][:harbour_search].to_s.capitalize%> </h1><p>
     You searched a yacht welcoming up to <span class="btn btn-default"><%=params[:boats_capacity_search]%></span> passengers - in
-<span class="btn btn-default"><%=params[:harbour_search]%></span>from <%= link_to "#", {class: "btn btn-default"} do %>
+<span class="btn btn-default"><%=params[:harbour_search][:harbour_search]%></span>from <%= link_to "#", {class: "btn btn-default"} do %>
               <%=params[:start_date_search]%>
             <% end %>
             to <%= link_to "#", {class: "btn btn-default"} do %>
