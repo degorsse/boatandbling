@@ -1,6 +1,6 @@
 class BoatsController < ApplicationController
   before_action :find_harbour, only: [:index, :create, :new, :show, :edit, :update, :destroy]
-
+  skip_before_action :authenticate_user!, only: :selection
   # GET /boats
   # GET /boats.json
   def index
