@@ -24,17 +24,35 @@ class HarboursController < ApplicationController
   end
 
   def show
+
+    set_harbour
+    @boats_in_harbour = Boat.joins(:harbour).where('harbour.id =?', @harbour.id)
+    @boats = Boat.all
+    @selection = []
+      @boats.each do |b|
+        if b.harbour == @harbour
+          @selection << b
+        end
+      end
+
+
   end
 
+# @croc = Boat.all.where(b.harbour == @harbour))
+
   def edit
+    set_harbour
   end
 
   def update
+    set_harbour
+    @harbour.update(params_harbour)
+    redirect_to harbours_path
   end
 
   def destroy
    set_harbour
-   @harbour.delete
+   @harbour.destroy
    redirect_to harbours_path
 
   end

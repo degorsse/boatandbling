@@ -32,7 +32,7 @@ class BoatsController < ApplicationController
   def create
     @boat = @harbour.boats.build(boat_params)
     @boat.save
-    redirect_to harbour_boats_path(@harbour, @boat)
+    redirect_to harbour_boats_path(@harbour)
     # respond_to do |format|
     #   if @boat.save
     #     format.html { redirect_to harbour_boats_path, notice: 'Boat was successfully created.' }

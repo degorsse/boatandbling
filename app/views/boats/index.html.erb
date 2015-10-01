@@ -1,11 +1,12 @@
 <p id="notice"><%= notice %></p>
 
-<h1>Existing Boats</h1>
+<h1>Existing Boats in <%= @harbour.name %></h1>
 
 <table class="table table_striped">
   <thead>
     <tr>
       <th>Name</th>
+      <th>Harbour</th>
       <th>Capacity</th>
       <th>Size</th>
       <th>Price per day</th>
@@ -15,7 +16,7 @@
   </thead>
 
   <tbody>
-    <% @boats.each do |boat| %>
+    <% @harbour.boats.each do |boat| %>
       <tr>
         <td><%= boat.name %></td>
         <td><%= boat.harbour.name %>
