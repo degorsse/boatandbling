@@ -15,8 +15,9 @@
 
   get 'bookings/new'
 
+  get 'bookings/home'
 
-  root "bookings#new"
+  root "bookings#home"
 
   # The priority is based upon order of creation: first created -> highest priority.
   # See how all your routes lay out with "rake routes".
