@@ -14,14 +14,8 @@ class BoatsController < ApplicationController
   end
 
   def selection
-    @message=""
-    if params[:harbour_search].nil?
-      @boats_selected = Boat.where('boat.capacity>=?', params[:boats_capacity_search])
-    @message= "No results sorry, try again"
-    else
-    @boats_selected = Boat.joins(:harbour).where('harbours.city= ? AND boats.capacity >= ?', params[:harbour_search], params[:boats_capacity_search].to_i)
-    @message
-    end
+    @boats_selected = Boat.joins(:harbour).where('harbours.city= ? AND boats.capacity >= ?', params[:harbour_search][:harbour_search], params[:boats_capacity_search].to_i)
+    @message= ""
   end
 
 
