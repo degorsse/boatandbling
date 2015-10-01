@@ -48,6 +48,17 @@ ActiveRecord::Schema.define(version: 20150930165442) do
     t.datetime "updated_at", null: false
   end
 
+  create_table "searches", force: :cascade do |t|
+    t.date     "start_date"
+    t.date     "end_date"
+    t.integer  "harbour_id"
+    t.string   "capacity"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+  end
+
+  add_index "searches", ["harbour_id"], name: "index_searches_on_harbour_id", using: :btree
+
   create_table "users", force: :cascade do |t|
     t.string   "email",                  default: "", null: false
     t.string   "encrypted_password",     default: "", null: false
@@ -68,4 +79,5 @@ ActiveRecord::Schema.define(version: 20150930165442) do
 
   add_foreign_key "boats", "harbours"
   add_foreign_key "bookings", "boats"
+  add_foreign_key "searches", "harbours"
 end
