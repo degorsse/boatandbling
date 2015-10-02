@@ -37,6 +37,9 @@ gem 'sdoc', '~> 0.4.0', group: :doc
   gem "autoprefixer-rails"
 
   gem 'devise'
+  gem 'figaro'
+  gem 'aws-sdk', '< 2.0'
+  gem 'paperclip'
 
 group :development, :test do
   # Call 'byebug' anywhere in the code to stop execution and get a debugger console
