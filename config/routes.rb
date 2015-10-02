@@ -4,9 +4,9 @@
   resources :harbours do
     get 'boats/selection'
       resources :boats do
-          get 'users/id/bookings/create'
+          post 'bookings/create'
           get 'bookings/home'
-        resources :bookings, only: [:create, :index, :show]
+        resources :bookings, only: [:index, :show, :new, :create]
       end
     end
 
