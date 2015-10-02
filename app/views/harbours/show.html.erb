@@ -1,3 +1,4 @@
+<div class="container" >
 <h1>Welcome in <%= @harbour.name %> </h1>
 
 <p>list of boats in the harbour</p>
@@ -35,7 +36,18 @@
   </tbody>
 </table>
 
-
 <td><%= link_to 'Back to harbours',harbours_path, class: "btn btn-primary" %></td>
 <td><%= link_to 'Add a boat to this harbour',new_harbour_boat_path(@harbour), class: "btn btn-primary" %></td>
+
+<br>
+<br>
+</div>
+  <div class="img">
+
+    <%= image_tag @harbour.picture.url(:medium) , class:"full_img"%>
+
+  </div>
+
+
+
 
