@@ -58,6 +58,10 @@ class HarboursController < ApplicationController
 
   end
 
+  def post_params
+  params.require(:harbour).permit(:title, :body, :picture)
+  end
+
 
   private
 
@@ -67,7 +71,7 @@ class HarboursController < ApplicationController
   end
 
   def params_harbour
-    params.require(:harbour).permit(:name,:address,:city)
+    params.require(:harbour).permit(:name, :address, :city, :picture)
   end
 
 
