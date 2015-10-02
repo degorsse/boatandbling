@@ -4,7 +4,7 @@
   resources :harbours do
     get 'boats/selection'
       resources :boats do
-          get 'users/id/bookings/create'
+          get 'bookings/create'
           get 'bookings/home'
         resources :bookings, only: [:create, :index, :show]
       end

@@ -1,6 +1,6 @@
 class BoatsController < ApplicationController
   before_action :find_harbour, only: [:index, :create, :new, :show, :edit, :update, :destroy]
-  skip_before_action :authenticate_user!, only: :selection
+  skip_before_action :authenticate_user!
   # GET /boats
   # GET /boats.json
   def index
@@ -16,6 +16,7 @@ class BoatsController < ApplicationController
   def selection
     @boats_selected = Boat.joins(:harbour).where('harbours.city= ? AND boats.capacity >= ?', params[:harbour_search][:harbour_search], params[:boats_capacity_search].to_i)
     @message= ""
+    @user = current_user
   end
 
 
@@ -91,3 +92,4 @@ class BoatsController < ApplicationController
       params.require(:boat).permit(:name, :capacity, :size, :price_per_day, :description, :picture)
     end
 end
+
