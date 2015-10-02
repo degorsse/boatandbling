@@ -3,20 +3,13 @@
 
   resources :harbours do
     get 'boats/selection'
-    resources :boats
+    resources :boats do
+      resources :bookings, only: [:create, :index, :show]
     end
 
   devise_for :users
 
-
-
   get 'users/id/bookings/create'
-
-  get 'bookings/index'
-
-  get 'bookings/show'
-
-  get 'bookings/new'
 
   get 'bookings/home'
 

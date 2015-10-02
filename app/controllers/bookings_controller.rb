@@ -13,7 +13,6 @@ class BookingsController < ApplicationController
   end
 
   def new
-    Devise.user_signed_in?(user)
     @booking = Booking.new
   end
   def home
