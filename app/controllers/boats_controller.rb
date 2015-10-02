@@ -49,6 +49,7 @@ class BoatsController < ApplicationController
   # PATCH/PUT /boats/1
   # PATCH/PUT /boats/1.json
   def update
+    set_boat
     respond_to do |format|
       if @boat.update(boat_params)
         format.html { redirect_to harbour_boats_path, notice: 'Boat was successfully updated.' }
@@ -71,6 +72,10 @@ class BoatsController < ApplicationController
     end
   end
 
+  def post_params
+  params.require(:post).permit(:title, :body, :picture)
+  end
+
   private
     # Use callbacks to share common setup or constraints between actions.
     def set_boat
@@ -83,6 +88,6 @@ class BoatsController < ApplicationController
 
     # Never trust parameters from the scary internet, only allow the white list through.
     def boat_params
-      params.require(:boat).permit(:name, :capacity, :size, :price_per_day, :description)
+      params.require(:boat).permit(:name, :capacity, :size, :price_per_day, :description, :picture)
     end
 end
