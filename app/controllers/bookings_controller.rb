@@ -11,7 +11,7 @@ class BookingsController < ApplicationController
   def create
     @user = current_user
     @booking = Booking.new(booking_params)
-    @booking.user = current_user
+    @booking.user_id = current_user.id
     @booking.boat = @boat
     @booking.save
     redirect_to harbour_boat_bookings_path(@harbour, @boat)
