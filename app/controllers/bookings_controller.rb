@@ -14,11 +14,21 @@ class BookingsController < ApplicationController
     @booking.user = current_user
     @booking.boat = @boat
     @booking.save
+    price_calculation
     redirect_to harbour_boat_bookings_path(@harbour, @boat)
   end
-
+  def price_calculation
+    if @booking.start_date > @booking.end_date
+      @booking.total_price = 0
+    else
+      duration = @booking.end_date-@booking.start_date
+      @booking.total_price = @booking.boat.price_per_day * duration
+    end
+  end
   def index
+    @user = current_user
     @bookings = Booking.all.where(user:current_user)
+    @total_amount="1230 EUR"
   end
 
   def show
