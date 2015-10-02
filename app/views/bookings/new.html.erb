@@ -1,0 +1,13 @@
+<div class="container">
+  <div class="row ">
+  <h1 class="title">Creation of a new booking</h1>
+   <br>
+        <%= simple_form_for ([@harbour, @boat, @booking]) do |f| %>
+          <%= f.input :start_date, class: 'form-control' %>
+          <%= f.input :end_date, class: 'form-control' %>
+          <%= f.submit %>
+    <% end%>
+  </div>
+</div>
+
+

@@ -45,7 +45,7 @@
         <td><%= boat.description %></td>
         <td><%= link_to 'More...', harbour_boat_path(boat.harbour, boat) %></span></td>
         <td><%= link_to 'Quick reservation',
-        harbour_boat_bookings_create_path(boat.harbour, boat) %></span></td>
+        new_harbour_boat_booking_path(boat.harbour, boat, start_date_search: params[:start_date_search], end_date_search:params[:end_date_search]) %></span></td>
     <% end%>
       </tbody>
     </table>
